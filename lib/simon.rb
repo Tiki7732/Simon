@@ -19,17 +19,20 @@ class Simon
   end
 
   def take_turn
+    system('clear')
     show_sequence
-    sleep(5)
+    sleep(3)
     system('clear')
     require_sequence
     unless game_over
       round_success_message
       @sequence_length += 1
+      sleep(3)
     end
   end
 
   def show_sequence
+    p "Ok, here goes! Round #{sequence_length}"
     add_random_color
     seq.each {|color| print color + " "}
     print "\n"
@@ -42,13 +45,11 @@ class Simon
   end
 
   def add_random_color
-
-    sequence_length.times {seq.push(COLORS.sample)}
-
+    seq.push(COLORS.sample)
   end
 
   def round_success_message
-    p "Moving on to next method"
+    p "Moving on to next round"
   end
 
   def game_over_message
@@ -62,5 +63,5 @@ class Simon
   end
 end
 
-# simon = Simon.new
-# simon.play
+simon = Simon.new
+simon.play
