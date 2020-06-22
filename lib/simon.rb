@@ -27,6 +27,8 @@ class Simon
   end
 
   def add_random_color
+    color_options = ["green", "yellow", "red", "blue"]
+    sequence_length.times {seq.push(color_options.sample)}
 
   end
 
