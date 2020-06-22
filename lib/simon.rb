@@ -11,7 +11,11 @@ class Simon
   end
 
   def play
-    take_turn
+    until game_over
+      take_turn
+    end
+    game_over_message
+    reset_game
   end
 
   def take_turn
